@@ -1686,7 +1686,7 @@ def drawStatus(score, score_width, target_score, turns_left):
 
 
 def main():
-  if os.path.isfile("../assets/sprites.gif") == False:
+  if os.path.isfile("sprites.gif") == False:
     print("sprites.gif must be located in the same folder / directory as")
     print("your .py file.  Ensure that the name of the file is in all")
     print("lowercase letters.")
@@ -1704,7 +1704,7 @@ def main():
   test_hint()
   test_clearAll()
 
-  bg, images, sel_images, win_image, lose_image, cc_m, cc_b = loadSpriteSheet("../assets/sprites.gif")
+  bg, images, sel_images, win_image, lose_image, cc_m, cc_b = loadSpriteSheet("sprites.gif")
   setAutoUpdate(False)
   while not closed():
     clear()
