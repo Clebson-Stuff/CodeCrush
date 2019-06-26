@@ -10,5 +10,5 @@
   <li><del>Swap</del></li>
   <li>A peça especial</li>
   <li>Limitando Swap</li>
-  <li>Opcional</li>
+  <li>Personalização opcional</li>
 </ul>
