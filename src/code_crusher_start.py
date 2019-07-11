@@ -70,11 +70,44 @@ def swap(board, r1, c1, r2, c2):
 #  Returns: None -- the game board passed as a parameter is modified
 #
 def clearAll(board, sym):
-  pass
+  for i in range(len(board)):
+    for k in range(len(board[i])):
+      if(board[i][k] == sym):
+        board[i][k] = EMPTY
 
 #
-#  Insert your implementations of vLineAt and hLineAt here
+#  Insert your implementations of vLineAt (linha) and hLineAt (coluna) here
 #
+
+def vLineAt(board, row, col):
+  vetorAuxiliar = []
+  cont = 0
+  for j in range(len(board)):
+    vetorAuxiliar.append(board[j][col]) 
+  for i in range(len(vetorAuxiliar)-2):
+    for k in range(i,i+3):
+      if(vetorAuxiliar[k] == board[row][col]):
+        cont += 1
+    if(cont >= 3):
+      return True
+    else:
+      cont = 0
+  return False
+  
+
+def hLineAt(board, row, col):
+  vetorAuxiliar = board[row]
+  cont = 0 
+  for i in range(len(vetorAuxiliar)-2):
+    for k in range(i,i+3):
+      if(vetorAuxiliar[k] == board[row][col]):
+        cont += 1
+    if(cont >= 3):
+      return True
+    else:
+      cont = 0
+  return False
+
 
 #
 #  Report whether or not two pieces on the board can be swapped.  The function
@@ -89,7 +122,13 @@ def clearAll(board, sym):
 #  Returns: True if the proposed swap creates a line.  False otherwise.
 #
 def canSwap(board, r1, c1, r2, c2):
-  return True
+  swap(board, r1, c1, r2, c2)
+  if (hLineAt(board, r1, c1 ) or hLineAt(board, r2,c2) or vLineAt(board, r1, c1) or vLineAt(board, r2, c2)):
+    swap(board,r1,c1, r2, c2)
+    return True
+  else:
+    swap(board, r1, c1, r2, c2)
+  return False
 
 #
 #  Identify two adjacent positions on the board that can be swapped to 
