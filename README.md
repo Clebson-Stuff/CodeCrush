@@ -8,7 +8,8 @@
 <ul>
   <li><del>creatBoard</del></li>
   <li><del>Swap</del></li>
-  <li>A peça especial</li>
+  <li><del>A peça especial</del></li>
   <li>Limitando Swap</li>
+  <li><h6>Concertar o hLineAt</h6></li>
   <li>Personalização opcional</li>
 </ul>
