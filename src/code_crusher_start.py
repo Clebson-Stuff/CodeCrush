@@ -80,33 +80,35 @@ def clearAll(board, sym):
 #
 
 def vLineAt(board, row, col):
-  vetorAuxiliar = []
-  cont = 0
-  for j in range(len(board)):
-    vetorAuxiliar.append(board[j][col]) 
-  for i in range(len(vetorAuxiliar)-2):
-    for k in range(i,i+3):
-      if(vetorAuxiliar[k] == board[row][col]):
-        cont += 1
-    if(cont >= 3):
-      return True
-    else:
-      cont = 0
-  return False
-  
-
-def hLineAt(board, row, col):
-  vetorAuxiliar = board[row]
-  cont = 0 
-  for i in range(len(vetorAuxiliar)-2):
-    for k in range(i,i+3):
-      if(vetorAuxiliar[k] == board[row][col]):
-        cont += 1
-    if(cont >= 3):
-      return True
-    else:
-      cont = 0
-  return False
+     #COMPARANDO O ANTERIOR COM O PRÓXIMO
+    if(row >=1 and row<= len(board)-2):
+        if(board[row][col] == board[row-1][col]) and (board[row][col] == board[row+1][col]):
+            return True    
+    #COMPARANDO OS 2 ANTERIORES
+    if (row <= len(board)-1 and row >= 2 ):
+        if(board[row][col] == board[row-1][col]) and (board[row][col] == board[row-2][col]):
+            return True    
+    #COMPARANDO OS 2 SEGUINTES
+    if(row >= 0 and row <= len(board)-2):
+        if(board[row][col] == board[row+1][col]) and (board[row][col] == board[row+2][col]):
+            return True
+    return False
+    
+def hLineAt(board, row, col):    
+    #COMPARANDO O ANTERIOR COM O PRÓXIMO
+    if(col >=1 and col<= len(board[row])-2):
+        if(board[row][col] == board[row][col-1]) and (board[row][col] == board[row][col+1]):
+            return True    
+    #COMPARANDO OS 2 ANTERIORES
+    if (col <= len(board[row])-1 and col >= 2 ):
+        if(board[row][col] == board[row][col-1]) and (board[row][col] == board[row][col-2]):
+            return True    
+    #COMPARANDO OS 2 SEGUINTES
+    if(col >= 0 and col <= len(board[row])-2):
+        if(board[row][col] == board[row][col+1]) and (board[row][col] == board[row][col+2]):
+            return True
+    return False
+        
 
 
 #
@@ -123,8 +125,8 @@ def hLineAt(board, row, col):
 #
 def canSwap(board, r1, c1, r2, c2):
   swap(board, r1, c1, r2, c2)
-  if (hLineAt(board, r1, c1 ) or hLineAt(board, r2,c2) or vLineAt(board, r1, c1) or vLineAt(board, r2, c2)):
-    swap(board,r1,c1, r2, c2)
+  if (hLineAt(board, r1, c1 ) or hLineAt(board, r2, c2) or vLineAt(board, r1, c1) or vLineAt(board, r2, c2)):
+    swap(board, r1, c1, r2, c2)
     return True
   else:
     swap(board, r1, c1, r2, c2)
