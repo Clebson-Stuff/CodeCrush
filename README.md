@@ -4,7 +4,7 @@
 <p> Em questão de implementação o jogo é feito totalmente em python com ajuda de algumas bibliotecas já sugeridas pelo professor.</p>
 <h2>Estrutura do Diretório</h2>
 <h3>src:</h3>
-<p>Todo o codigo do jogo, incluindo scripts adconais e sprites./p>
+<p>Todo o codigo do jogo, incluindo scripts adconais e sprites.</p>
 <h2>To-do</h2>
 <ul>
   <li><del>creatBoard</del></li>
